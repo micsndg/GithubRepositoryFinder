@@ -34,4 +34,28 @@ extension AppContainer {
             viewModel: viewModel
         )
     }
+    
+    func makeRepositoryDetailView(
+        owner: String,
+        repositoryName: String
+    ) -> some View {
+
+        let service = RepositoryDetailServiceImpl(
+            apiClient: apiClient
+        )
+
+        let repository = RepositoryDetailRepositoryImpl(
+            service: service
+        )
+
+        let viewModel = RepositoryDetailViewModel(
+            owner: owner,
+            repositoryName: repositoryName,
+            repositoryRepository: repository
+        )
+
+        return RepositoryDetailView(
+            viewModel: viewModel
+        )
+    }
 }

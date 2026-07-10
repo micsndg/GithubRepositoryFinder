@@ -84,7 +84,14 @@ private extension SearchSUView {
     
     func repositoryList() -> some View {
         List(viewModel.repositories) { repository in
-            repositoryRow(repository: repository)
+            NavigationLink {
+                AppContainer.shared.makeRepositoryDetailView(
+                    owner: repository.owner.login,
+                    repositoryName: repository.name
+                )
+            } label: {
+                repositoryRow(repository: repository)
+            }
         }
         .listStyle(.plain)
     }
@@ -124,23 +131,28 @@ private extension SearchSUView {
     
     func repositoryRowPlaceholder() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            RoundedRectangle(cornerRadius: 4)
+            rectangularPlaceHolder()
             
-            RoundedRectangle(cornerRadius: 4)
+            rectangularPlaceHolder()
             
             HStack {
-                RoundedRectangle(cornerRadius: 4)
+                rectangularPlaceHolder()
                 
-                RoundedRectangle(cornerRadius: 4)
+                rectangularPlaceHolder()
                 
                 Spacer()
                 
-                RoundedRectangle(cornerRadius: 4)
+                rectangularPlaceHolder()
             }
             .font(.caption)
             .foregroundStyle(.secondary)
         }
         .padding(.vertical, 8)
+    }
+    
+    func rectangularPlaceHolder() -> some View {
+        RoundedRectangle(cornerRadius: 4)
+            .fill(Color.gray)
     }
 }
 
