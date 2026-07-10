@@ -1,65 +1,126 @@
 # GitHub Repository Finder
 
-A simple GitHub repository search application built entirely using **SwiftUI**.
+A GitHub repository explorer built with **SwiftUI**, showcasing modern iOS development practices, clean architecture, and asynchronous networking.
 
-This project allows users to search and explore GitHub repositories through a native iOS experience. It is built from the ground up using SwiftUI to demonstrate modern iOS development practices, UI composition, and Swift-based architecture.
+The application allows users to search for GitHub repositories, view detailed repository information, and explore data retrieved from the GitHub REST API.
 
 > 🚧 **Work in Progress**
 >
-> This project is currently under active development. More features, improvements, and additional modules will be added in future updates.
+> This project is actively being developed. Additional features and improvements will continue to be added.
 
-## Current Implementation
+---
 
-### SearchView
+## Feature Checklist
 
-The currently implemented module is the main search screen:
+### Core Features
 
-- Search GitHub repositories
-- Display repository information
-- SwiftUI-based user interface
-- Native SwiftUI components and layouts
+- [x] Search GitHub repositories
+- [x] Display repository list
+- [x] Pull-to-refresh
+- [x] Loading state
+- [x] Empty state
+- [x] Error state
+
+### Repository Details
+
+- [x] Repository detail screen
+- [x] Owner information
+- [x] Repository statistics
+- [x] Open repository in GitHub
+
+### Planned Features
+
+- [ ] Favorites
+- [ ] Pagination (Infinite Scrolling)
+- [ ] Repository filtering
+- [ ] Recent searches
+- [ ] Repository sharing
+- [ ] Offline caching
+- [ ] Unit Tests
+- [ ] UI Tests
+
+---
 
 ## Tech Stack
 
-- **Swift**
-- **SwiftUI**
-- **iOS Development**
-- **GitHub API** (planned/in progress)
+- Swift
+- SwiftUI
+- Swift Concurrency (`async/await`)
+- MVVM Architecture
+- Repository Pattern
+- Dependency Injection
+- GitHub REST API
+
+---
+
+## Architecture
+
+The project follows a modular architecture with clear separation of responsibilities.
+
+```
+View
+    ↓
+ViewModel
+    ↓
+Repository
+    ↓
+Service
+    ↓
+APIClient
+```
+
+```
+GitHubExplorer
+├── App
+├── Core
+│   ├── Networking
+│   └── Utilities
+├── Modules
+│   ├── Shared
+│   ├── Search
+│   ├── RepositoryDetail
+│   └── Favorites (WIP)
+├── Resources
+└── Tests
+```
+
+---
 
 ## Project Goals
 
-This project aims to showcase:
+This project aims to demonstrate:
 
-- Building a complete iOS application using pure SwiftUI
-- Modern SwiftUI UI patterns
-- Clean and maintainable code structure
-- API integration
-- State management using SwiftUI principles
-- Continuous improvement through feature expansion
+- Modern SwiftUI development
+- Modular application architecture
+- Clean and maintainable code
+- Networking with the GitHub REST API
+- Dependency Injection
+- Repository Pattern
+- State management using SwiftUI
+- Scalable project structure
+
+---
 
 ## Screenshots
 
-_Coming soon_
+### Search
 
-## Future Improvements
+<img width="301" height="655" alt="Search Screen" src="https://github.com/user-attachments/assets/322e7bce-b0fb-4fdf-83a4-5b466922f927" />
 
-Planned features include:
+### Repository Details
 
-- Repository details screen
-- User profile view
-- Pagination support
-- Repository filtering and sorting
-- Favorites/bookmarking repositories
-- Improved error handling
-- Unit testing
-- Additional SwiftUI architecture improvements
+<img width="301" height="655" alt="Repository Detail Screen" src="https://github.com/user-attachments/assets/38ae49a7-f0c3-4af1-8dd9-a53fe5820a61" />
+
+---
 
 ## Requirements
 
-- Xcode 15+
-- iOS 17+
-- Swift 5.9+
+- Xcode 16+
+- iOS 18+
+- Swift 6
+
+---
 
 ## License
 
-This project is for learning and demonstration purposes.
+This project was created for learning, portfolio, and demonstration purposes.
